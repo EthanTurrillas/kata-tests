@@ -6,6 +6,7 @@ class ListaCompra
 {
     private array $listaCompra = [];
     public function listaCompra(string $product){
+        $product = strtolower($product);
         if (str_starts_with($product, 'añadir')) {
             $product = substr($product, 8);
             $this->añadirProducto($product);
@@ -17,7 +18,7 @@ class ListaCompra
         else{
             $this->listaCompra = [];
         }
-        return implode(',', $this->listaCompra);
+        return implode(', ', $this->listaCompra);
     }
 
     private function añadirProducto(string $product){

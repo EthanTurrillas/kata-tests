@@ -13,8 +13,8 @@ class ListaCompraTest extends TestCase
     public function givenAddProductReturnListWithProduct()
     {
         $listaCompra = new ListaCompra();
-        $result = $listaCompra->listaCompra("añadir Pan");
-        $this->assertEquals("Pan x1", $result);
+        $result = $listaCompra->listaCompra("añadir pan");
+        $this->assertEquals("pan x1", $result);
     }
 
     /**
@@ -23,8 +23,8 @@ class ListaCompraTest extends TestCase
     public function givenDeleteProductReturnListWithNoProduct()
     {
         $listaCompra = new ListaCompra();
-        $listaCompra->listaCompra("añadir Pan");
-        $result = $listaCompra->listaCompra("eliminar Pan");
+        $listaCompra->listaCompra("añadir pan");
+        $result = $listaCompra->listaCompra("eliminar pan");
         $this->assertEquals("", $result);
     }
 
@@ -34,8 +34,8 @@ class ListaCompraTest extends TestCase
     public function givenVaciarListReturnEmptyString()
     {
         $listaCompra = new ListaCompra();
-        $listaCompra->listaCompra("añadir Pan");
-        $listaCompra->listaCompra("añadir Cebolla");
+        $listaCompra->listaCompra("añadir pan");
+        $listaCompra->listaCompra("añadir cebolla");
         $result = $listaCompra->listaCompra("vaciar");
         $this->assertEquals("", $result);
     }
@@ -46,8 +46,8 @@ class ListaCompraTest extends TestCase
     public function givenDeleteProductNotExistsReturnError()
     {
         $listaCompra = new ListaCompra();
-        $listaCompra->listaCompra("añadir Pan");
-        $result = $listaCompra->listaCompra("eliminar Cebolla");
+        $listaCompra->listaCompra("añadir pan");
+        $result = $listaCompra->listaCompra("eliminar cebolla");
         $this->assertEquals("El producto seleccionado no existe", $result);
     }
 }
