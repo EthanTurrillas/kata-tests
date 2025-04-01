@@ -27,4 +27,15 @@ class ListaCompraTest extends TestCase
         $result = $listaCompra->listaCompra("eliminar Pan");
         $this->assertEquals("", $result);
     }
+
+    /**
+     * @test
+     */
+    public function givenVaciarListReturnEmptyString(){
+        $listaCompra = new ListaCompra();
+        $listaCompra->listaCompra("añadir Pan");
+        $listaCompra->listaCompra("añadir Cebolla");
+        $result = $listaCompra->listaCompra("vaciar");
+        $this->assertEquals("", $result);
+    }
 }

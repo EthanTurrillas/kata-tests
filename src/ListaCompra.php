@@ -10,9 +10,12 @@ class ListaCompra
             $product = substr($product, 8);
             $this->añadirProducto($product);
         }
-        elseif (str_starts_with($product, 'eliminar')){
+        else if (str_starts_with($product, 'eliminar')){
             $product = substr($product, 9);
             $this->eliminarProducto($product);
+        }
+        else{
+            $this->listaCompra = [];
         }
         return implode(',', $this->listaCompra);
     }
