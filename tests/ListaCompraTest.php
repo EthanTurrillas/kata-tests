@@ -31,11 +31,23 @@ class ListaCompraTest extends TestCase
     /**
      * @test
      */
-    public function givenVaciarListReturnEmptyString(){
+    public function givenVaciarListReturnEmptyString()
+    {
         $listaCompra = new ListaCompra();
         $listaCompra->listaCompra("añadir Pan");
         $listaCompra->listaCompra("añadir Cebolla");
         $result = $listaCompra->listaCompra("vaciar");
         $this->assertEquals("", $result);
+    }
+
+    /**
+     * @test
+     */
+    public function givenDeleteProductNotExistsReturnError()
+    {
+        $listaCompra = new ListaCompra();
+        $listaCompra->listaCompra("añadir Pan");
+        $result = $listaCompra->listaCompra("eliminar Cebolla");
+        $this->assertEquals("El producto seleccionado no existe", $result);
     }
 }

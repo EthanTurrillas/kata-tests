@@ -24,11 +24,15 @@ class ListaCompra
         $product .= ' x1';
         $this->listaCompra[] = $product;
     }
-    private function eliminarProducto(string $product){
+
+    private function eliminarProducto(string $product)
+    {
         foreach ($this->listaCompra as $key => $value) {
             if (str_starts_with($value, $product)) {
                 unset($this->listaCompra[$key]);
+                return;
             }
         }
+        $this->listaCompra[0] = "El producto seleccionado no existe";
     }
 }
