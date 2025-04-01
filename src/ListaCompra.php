@@ -11,7 +11,8 @@ class ListaCompra
             $this->añadirProducto($product);
         }
         elseif (str_starts_with($product, 'eliminar')){
-            return "";
+            $product = substr($product, 9);
+            $this->eliminarProducto($product);
         }
         return implode(',', $this->listaCompra);
     }
@@ -19,5 +20,12 @@ class ListaCompra
     private function añadirProducto(string $product){
         $product .= ' x1';
         $this->listaCompra[] = $product;
+    }
+    private function eliminarProducto(string $product){
+        foreach ($this->listaCompra as $key => $value) {
+            if (str_starts_with($value, $product)) {
+                unset($this->listaCompra[$key]);
+            }
+        }
     }
 }
